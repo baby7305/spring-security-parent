@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>spring-security-core</artifactId>
+            <artifactId>spring-security-browser</artifactId>
             <version>${imooc.security.version}</version>
         </dependency>
     </dependencies>

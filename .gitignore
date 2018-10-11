@@ -10,3 +10,5 @@ spring-security-parent\.iml
 \.project
 
 \.vscode/
+
+spring-security-demo/target/
