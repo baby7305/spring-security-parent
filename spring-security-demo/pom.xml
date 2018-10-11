@@ -11,5 +11,12 @@
 
     <artifactId>spring-security-demo</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${imooc.security.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -9,6 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <imooc.security.version>1.0-SNAPSHOT</imooc.security.version>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
