@@ -5,6 +5,7 @@ import com.example.dto.UserQueryCondition;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +26,15 @@ public class UserController {
         userList.add(new User("user2", "pwd2"));
         userList.add(new User("user3", "pwd3"));
         return userList;
+    }
+
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+    public User getInfo(@PathVariable(name = "id") Long idxxx) {
+        System.out.println("进入getInfo服务");
+        System.out.println(idxxx);
+        User user = new User();
+        user.setUsername("tom");
+        System.out.println(user);
+        return user;
     }
 }
