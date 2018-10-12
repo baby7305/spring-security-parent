@@ -5,18 +5,15 @@ import com.example.dto.UserQueryCondition;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/official")
+@RequestMapping("/official/user")
 public class UserController {
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @GetMapping
     public List<User> query(UserQueryCondition userQueryCondition, @PageableDefault(page = 2, size = 17, sort = {
             "username" }, direction = Sort.Direction.DESC) Pageable pageable) {
         System.out.println(userQueryCondition);
@@ -28,7 +25,7 @@ public class UserController {
         return userList;
     }
 
-    @RequestMapping(value = "/user/{id:\\d+}", method = RequestMethod.GET)
+    @GetMapping("/{id:\\d+}")
     public User getInfo(@PathVariable(name = "id") Long idxxx) {
         System.out.println("进入getInfo服务");
         System.out.println(idxxx);
