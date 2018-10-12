@@ -40,9 +40,13 @@ public class UserControllerTest {
 
     @Test
     public void whenGetInfoSuccess() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/official/user/1").contentType(MediaType.APPLICATION_JSON_UTF8))
+        String result = mockMvc
+                .perform(MockMvcRequestBuilders.get("/official/user/1").contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("tom"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("tom")).andReturn().getResponse()
+                .getContentAsString();
+
+        System.out.println(result);
     }
 
     @Test
