@@ -30,8 +30,7 @@ public class UserControllerTest {
     public void whenQuerySuccess() throws Exception {
         String result = mockMvc
                 .perform(MockMvcRequestBuilders.get("/official/user").param("username", "jojo").param("age", "18")
-                        .param("ageTo", "60").param("xxx", "yyy").param("size", "15").param("page", "3")
-                        .param("sort", "age,desc").contentType(MediaType.APPLICATION_JSON_UTF8))
+                        .param("ageTo", "60").param("xxx", "yyy").contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(3)).andReturn().getResponse()
                 .getContentAsString();
