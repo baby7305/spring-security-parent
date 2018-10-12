@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.dto.User;
 import com.example.dto.UserQueryCondition;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,8 +14,9 @@ import java.util.List;
 @RequestMapping("/official")
 public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public List<User> query(UserQueryCondition userQueryCondition) {
+    public List<User> query(UserQueryCondition userQueryCondition, Pageable pageable) {
         System.out.println(userQueryCondition);
+        System.out.println(pageable);
         List<User> userList = new ArrayList<>();
         userList.add(new User("user1", "pwd1"));
         userList.add(new User("user2", "pwd2"));
