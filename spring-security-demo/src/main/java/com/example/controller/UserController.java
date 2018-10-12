@@ -28,7 +28,7 @@ public class UserController {
         return userList;
     }
 
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/{id:\\d+}", method = RequestMethod.GET)
     public User getInfo(@PathVariable(name = "id") Long idxxx) {
         System.out.println("进入getInfo服务");
         System.out.println(idxxx);
