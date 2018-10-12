@@ -29,7 +29,7 @@ public class UserControllerTest {
     @Test
     public void whenQuerySuccess() throws Exception {
         String result = mockMvc
-                .perform(MockMvcRequestBuilders.get("/official/user").param("username", "jojo")
+                .perform(MockMvcRequestBuilders.get("/official/user")
                         .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(3)).andReturn().getResponse()

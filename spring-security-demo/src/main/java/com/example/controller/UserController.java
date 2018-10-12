@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/official")
 public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public List<User> query(@RequestParam(value = "username") String nickname) {
+    public List<User> query(@RequestParam(value = "username", required = false, defaultValue = "tom") String nickname) {
         System.out.println(nickname);
         List<User> userList = new ArrayList<>();
         userList.add(new User("user1", "pwd1"));
