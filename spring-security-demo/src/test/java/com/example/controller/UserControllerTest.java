@@ -50,4 +50,18 @@ public class UserControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/official/user/a").contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().is4xxClientError());
     }
+
+    @Test
+    public void whenCreateSuccess() throws Exception {
+
+        String content = "{\"username\":\"tom\",\"password\":\"pwd\"}";
+        String reuslt = mockMvc
+                .perform(MockMvcRequestBuilders.post("/official/user").contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .content(content))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("tom")).andReturn().getResponse()
+                .getContentAsString();
+
+        System.out.println(reuslt);
+    }
 }

@@ -13,6 +13,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/official/user")
 public class UserController {
+
+    @PostMapping
+    public User create(@RequestBody User user) {
+        return user;
+    }
+
     @GetMapping
     public List<User> query(UserQueryCondition userQueryCondition, @PageableDefault(page = 2, size = 17, sort = {
             "username" }, direction = Sort.Direction.DESC) Pageable pageable) {
