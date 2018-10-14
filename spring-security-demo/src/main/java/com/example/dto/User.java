@@ -1,7 +1,10 @@
 package com.example.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class User {
     private String username;
+    @NotBlank
     private String password;
 
     public User() {

@@ -54,7 +54,7 @@ public class UserControllerTest {
     @Test
     public void whenCreateSuccess() throws Exception {
 
-        String content = "{\"username\":\"tom\",\"password\":\"pwd\"}";
+        String content = "{\"username\":\"tom\",\"password\":null}";
         String reuslt = mockMvc
                 .perform(MockMvcRequestBuilders.post("/official/user").contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content(content))
