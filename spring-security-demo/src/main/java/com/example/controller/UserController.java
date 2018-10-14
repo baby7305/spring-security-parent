@@ -19,6 +19,11 @@ public class UserController {
         return user;
     }
 
+    @DeleteMapping("/{id:\\d+}")
+    public void delete(@PathVariable String id) {
+        System.out.println(id);
+    }
+
     @GetMapping
     public List<User> query(UserQueryCondition userQueryCondition, @PageableDefault(page = 2, size = 17, sort = {
             "username" }, direction = Sort.Direction.DESC) Pageable pageable) {
