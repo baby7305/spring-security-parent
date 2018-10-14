@@ -1,7 +1,10 @@
 package com.example.dto;
 
+import com.example.validator.MyConstraint;
+
 public class User {
     private String username;
+    @MyConstraint(message = "验证密码不对")
     private String password;
 
     public User() {
