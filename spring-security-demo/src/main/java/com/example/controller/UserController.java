@@ -19,7 +19,9 @@ public class UserController {
     @PostMapping
     public User create(@Valid @RequestBody User user, BindingResult errors) {
         if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors());
+            errors.getAllErrors().forEach(x -> {
+                System.out.println(x.getDefaultMessage());
+            });
         }
         return user;
     }
