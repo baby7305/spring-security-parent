@@ -5,6 +5,7 @@ import com.example.dto.UserQueryCondition;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,7 +22,12 @@ public class UserController {
     }
 
     @PutMapping("/{id:\\d+}")
-    public User update(@Valid @RequestBody User user) {
+    public User update(@Valid @RequestBody User user, BindingResult errors) {
+        if (errors.hasErrors()) {
+            errors.getAllErrors().forEach(x -> {
+                System.out.println(x.getDefaultMessage());
+            });
+        }
         return user;
     }
 

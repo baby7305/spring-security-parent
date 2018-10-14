@@ -7,7 +7,7 @@ public class User {
     private String id;
     private String username;
     private String password;
-    @Past
+    @Past(message = "生日必须是过去的时间")
     private Date birthday;
 
     public User() {
