@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,11 @@ public class UserController {
 
     @PostMapping
     public User create(@RequestBody User user) {
+        return user;
+    }
+
+    @PutMapping("/{id:\\d+}")
+    public User update(@Valid @RequestBody User user) {
         return user;
     }
 

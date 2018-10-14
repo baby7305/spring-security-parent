@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @RunWith(SpringRunner.class)
@@ -64,6 +65,22 @@ public class UserControllerTest {
                         .content(content))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("tom")).andReturn().getResponse()
+                .getContentAsString();
+
+        System.out.println(reuslt);
+    }
+
+    @Test
+    public void whenUpdateSuccess() throws Exception {
+        Date date = Date.from(ZonedDateTime.now().plusYears(1).toInstant());
+//        Date date = Date.from(ZonedDateTime.now().minusYears(1).toInstant());
+        System.out.println(date.getTime());
+        String content = "{\"id\":\"1\",\"username\":\"tom\",\"password\":\"pwd\",\"birthday\":" + date.getTime() + "}";
+        String reuslt = mockMvc
+                .perform(MockMvcRequestBuilders.put("/official/user/1").contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .content(content))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value("1")).andReturn().getResponse()
                 .getContentAsString();
 
         System.out.println(reuslt);

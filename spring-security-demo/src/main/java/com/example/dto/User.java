@@ -1,11 +1,13 @@
 package com.example.dto;
 
+import javax.validation.constraints.Past;
 import java.util.Date;
 
 public class User {
     private String id;
     private String username;
     private String password;
+    @Past
     private Date birthday;
 
     public User() {
