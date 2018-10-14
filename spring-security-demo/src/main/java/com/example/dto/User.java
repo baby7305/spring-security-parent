@@ -1,8 +1,11 @@
 package com.example.dto;
 
+import java.util.Date;
+
 public class User {
     private String username;
     private String password;
+    private Date birthday;
 
     public User() {
     }
@@ -10,6 +13,12 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(String username, String password, Date birthday) {
+        this.username = username;
+        this.password = password;
+        this.birthday = birthday;
     }
 
     public String getUsername() {
@@ -28,11 +37,20 @@ public class User {
         this.password = password;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", birthday=" + birthday +
                 '}';
     }
 }
