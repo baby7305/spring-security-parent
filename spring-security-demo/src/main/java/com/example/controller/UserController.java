@@ -35,11 +35,6 @@ public class UserController {
 
     @GetMapping("/{id:\\d+}")
     public User getInfo(@PathVariable(name = "id") Long idxxx) {
-        System.out.println("进入getInfo服务");
-        System.out.println(idxxx);
-        User user = new User();
-        user.setUsername("tom");
-        System.out.println(user);
-        return user;
+        throw new RuntimeException("程序报错了");
     }
 }
