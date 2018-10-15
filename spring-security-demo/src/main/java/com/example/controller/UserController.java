@@ -18,7 +18,7 @@ public class UserController {
 
     @PostMapping
     public User create(@Valid @RequestBody User user) {
-        return user;
+        throw new RuntimeException("程序报错了");
     }
 
     @GetMapping
