@@ -2,10 +2,10 @@ package com.example.controller;
 
 import com.example.dto.User;
 import com.example.dto.UserQueryCondition;
+import com.example.exception.UserNotExistException;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,7 +18,7 @@ public class UserController {
 
     @PostMapping
     public User create(@Valid @RequestBody User user) {
-        throw new RuntimeException("程序报错了");
+        throw new UserNotExistException(user);
     }
 
     @GetMapping
