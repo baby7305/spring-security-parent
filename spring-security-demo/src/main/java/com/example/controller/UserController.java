@@ -17,7 +17,7 @@ import java.util.List;
 public class UserController {
 
     @PostMapping
-    public User create(@Valid @RequestBody User user, BindingResult errors) {
+    public User create(@Valid @RequestBody User user) {
         return user;
     }
 
