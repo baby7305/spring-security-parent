@@ -2,6 +2,8 @@ package com.example.controller;
 
 import com.example.dto.User;
 import com.example.dto.UserQueryCondition;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -15,6 +17,7 @@ import java.util.List;
 public class UserController {
 
     @PostMapping
+    @ApiOperation(value = "创建用户")
     public User create(@RequestBody User user) {
         return user;
     }
@@ -25,6 +28,7 @@ public class UserController {
     }
 
     @GetMapping
+    @ApiOperation(value = "用户查询服务")
     public List<User> query(UserQueryCondition userQueryCondition, @PageableDefault(page = 2, size = 17, sort = {
             "username" }, direction = Sort.Direction.DESC) Pageable pageable) {
         System.out.println(userQueryCondition);
@@ -37,7 +41,7 @@ public class UserController {
     }
 
     @GetMapping("/{id:\\d+}")
-    public User getInfo(@PathVariable(name = "id") Long idxxx) {
+    public User getInfo(@ApiParam("用户id") @PathVariable(name = "id") Long idxxx) {
         System.out.println("进入getInfo服务");
         System.out.println(idxxx);
         User user = new User();

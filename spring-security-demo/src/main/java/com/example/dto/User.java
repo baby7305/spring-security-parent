@@ -1,7 +1,12 @@
 package com.example.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "用户对象封装")
 public class User {
     private String id;
+    @ApiModelProperty(value = "用户名")
     private String username;
     private String password;
 
