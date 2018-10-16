@@ -9,7 +9,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic()
+        http.formLogin()
                 .and()
                 .authorizeRequests()
                 .anyRequest()
