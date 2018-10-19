@@ -17,11 +17,11 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         String loginPage = securityProperties.getBrowserProperties().getLoginPage();
         System.out.println(loginPage);
         http.formLogin()
-                .loginPage(loginPage)
+                .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form")
                 .and()
                 .authorizeRequests()
-                .antMatchers(loginPage).permitAll()
+                .antMatchers("/authentication/require", loginPage).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
