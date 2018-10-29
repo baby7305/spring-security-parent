@@ -14,7 +14,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/authentication/form")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/sign-in.html").permitAll()
+                .antMatchers("/sign-in.html", "/image/code").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
